@@ -22,7 +22,7 @@ You can bump the version, as noted in VERSION.txt via this handy command:
 
 ## Versioning
 
-For transparency and insight into our release cycle, and for striving to maintain backwards compatibility, lithium_kickstart will be maintained under the Semantic Versioning guidelines as much as possible.
+For transparency and insight into our release cycle, and for striving to maintain backwards compatibility, this project will be maintained under the Semantic Versioning guidelines as much as possible.
 
 Releases will be numbered with the follow format:
 
