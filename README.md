@@ -16,7 +16,7 @@ Now, make sure resources is writable:
 
 You can bump the version, as noted in VERSION.txt via this handy command:
 
-	scripts/dump 0.1.0 Added awesome stuff
+	scripts/bump 0.1.0 Added awesome stuff
 
 *Note: This command also updates the CHANGELOG.txt.*
 
