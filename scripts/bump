@@ -1,0 +1,116 @@
+#!/bin/sh
+
+# Error handling
+set -o nounset
+set -o errexit
+
+# global vars
+#folder=`pwd` #if $0 is at root
+folder=`pwd | sed s/\\\/scripts//g` #if $0 is in /scripts
+version_file="$folder/VERSION.txt"
+version_temp="$folder/.VERSION.txt.new"
+changelog_file="$folder/CHANGELOG.txt"
+changelog_temp="$folder/.CHANGELOG.txt.new"
+
+# prints usage (when called with help, -h or --help)
+usage() {
+	echo
+	echo "usage: $0 <version> <description of version>"
+	echo "  e.g. $0 0.2.0 Added documentation"
+	show_current_version
+	exit
+}
+
+# prints current version
+show_current_version() {
+	echo
+	echo "Current version is: \c"
+	if ! [ -w "$version_file" ]; then
+		echo " -- no version file, yet --"
+	else
+		cat $version_file
+	fi
+}
+
+# updates version file
+update_version() {
+	if ! echo "$version" > $version_temp; then
+		echo "Could not replace VERSION"
+		exit 2
+	fi
+	mv $version_temp $version_file
+	echo "Bumped version to: \c"
+	cat $version_file
+}
+
+# prepends version and description to changelog
+update_changelog() {
+	if ! [ -w "$changelog_file" ]; then
+		touch $changelog_file
+	fi
+	echo "$version - $description"|cat - $changelog_file > $changelog_temp && mv $changelog_temp $changelog_file
+	echo "Changelog: \c"
+	head -1 $changelog_file
+}
+
+# commit to git
+commit() {
+	if [ -d "$folder/.git" ]; then
+		git add $version_file
+		git commit -m "Bumped Version to $version\n\n$description"
+	fi
+}
+
+# prepends description and commits to changelog.md
+update_changelog_md() {
+entry=<<EOF
+Changelog
+=========
+
+## :version - :description
+
+* [:sha1] - :commitmsg
+EOF
+	if ! [ -w "$changelog_md" ]; then
+		touch $changelog_md
+	fi
+	echo "## $version - $description"|cat - $changelog_md > $changelog_temp && mv $changelog_temp $changelog_md
+#	echo "Changelog: \c"
+#	head -1 $changelog_file
+}
+
+
+
+# if none or only one argument is given...
+if [ $# -lt 2 ]; then
+
+	# ... check, if user needs help
+	if [ $# == 1 ]; then
+		case $1 in
+		    'help') usage;;
+		    '-h') usage;;
+		    '--help') usage;;
+		esac
+	fi
+	
+	# ... or guide him through everything
+	show_current_version
+	echo "Please enter new version: \c "
+	read version
+	echo "Please enter description: \c "
+	read description
+fi
+
+# user is a pro - prepare arguments
+if [ $# -ge 2 ]; then
+	version=$1
+	description=`echo $@ | cut -f2- -d\ `
+fi
+
+# do the stuff (make sure, $version and $description are set)
+update_version
+update_changelog
+
+#update_changelog_md #unfinished
+
+#commit #untested
