@@ -6,7 +6,7 @@ set -o errexit
 
 # global vars
 #folder=`pwd` #if $0 is at root
-folder=`pwd | sed s/\\\/scripts//g` #if $0 is in /scripts
+folder=`dirname $(readlink -f ${0}) | sed s/\\\/scripts//g` #if $0 is in /scripts
 version_file="$folder/VERSION.txt"
 version_temp="$folder/.VERSION.txt.new"
 changelog_file="$folder/CHANGELOG.txt"
