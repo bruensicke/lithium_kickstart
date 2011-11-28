@@ -122,7 +122,9 @@ fi
 update_version
 update_changelog
 
-if $autocommit; then commit fi
+if $autocommit; then
+	commit
+fi
 
 #update_changelog_md #unfinished
 
