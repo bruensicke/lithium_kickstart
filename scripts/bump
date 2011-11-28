@@ -57,8 +57,11 @@ update_changelog() {
 # commit to git
 commit() {
 	if [ -d "$folder/.git" ]; then
-		git add $version_file
+		git reset HEAD .
+		git add $version_file $changelog_file
 		git commit -m "Bumped Version to $version\n\n$description"
+		git tag -a "$version" -m "Bumped Version to $version\n\n$description"
+		git push --tags master
 	fi
 }
 
@@ -114,4 +117,4 @@ update_changelog
 
 #update_changelog_md #unfinished
 
-#commit #untested
+commit
