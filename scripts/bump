@@ -8,9 +8,15 @@ set -o errexit
 #folder=`pwd` #if $0 is at root
 folder=`cd "$(dirname $0)"; pwd | sed s/\\\/scripts//g` #if $0 is in /scripts
 
-version_file="$folder/VERSION.txt"
+# please adjust to your needs
+autocommit=true
+version_filename="VERSION.txt"
+changelog_filename="CHANGELOG.txt"
+
+# do not touch
+version_file="$folder/$version_filename"
 version_temp="$folder/.VERSION.txt.new"
-changelog_file="$folder/CHANGELOG.txt"
+changelog_file="$folder/$changelog_filename"
 changelog_temp="$folder/.CHANGELOG.txt.new"
 
 # prints usage (when called with help, -h or --help)
@@ -57,11 +63,12 @@ update_changelog() {
 # commit to git
 commit() {
 	if [ -d "$folder/.git" ]; then
-		git reset HEAD .
+		git reset -q HEAD .
 		git add $version_file $changelog_file
-		git commit -m "Bumped Version to $version\n\n$description"
-		git tag -a "$version" -m "Bumped Version to $version\n\n$description"
-		git push --tags master
+		git commit -m "Bumped Version to $version"
+		git push
+		git tag -a "$version" -m "Bumped Version to $version"
+		git push --tags
 	fi
 }
 
@@ -115,6 +122,7 @@ fi
 update_version
 update_changelog
 
+if $autocommit; then commit fi
+
 #update_changelog_md #unfinished
 
-commit
