@@ -18,7 +18,18 @@ You can bump the version, as noted in VERSION.txt via this handy command:
 
 	scripts/bump 0.1.0 Added awesome stuff
 
-*Note: This command also updates the CHANGELOG.txt.*
+This updates the CHANGELOG.txt and (if setup that way) auto-commits and tags this release.
+
+*Note: Make sure you want to auto-commit.*
+
+### Configuration
+
+In case you want to have a different VERSION.txt and CHANGELOG.txt file, you can configure that in the bump script like that (see bump line 12-14):
+
+	# please adjust to your needs
+	autocommit=true
+	version_filename="VERSION.txt"
+	changelog_filename="CHANGELOG.txt"
 
 ## Versioning
 
