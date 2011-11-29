@@ -9,7 +9,7 @@ set -o errexit
 folder=`cd "$(dirname $0)"; pwd | sed s/\\\/scripts//g` #if $0 is in /scripts
 
 # please adjust to your needs
-autocommit=true
+autocommit=false
 version_filename="VERSION.txt"
 changelog_filename="CHANGELOG.txt"
 
