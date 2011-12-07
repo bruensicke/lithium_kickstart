@@ -81,5 +81,7 @@ require __DIR__ . '/bootstrap/action.php';
  */
 // require __DIR__ . '/bootstrap/console.php';
 
+require __DIR__ . '/bootstrap/logging.php';
+
 
 ?>
