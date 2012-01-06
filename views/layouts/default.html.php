@@ -1,31 +1,31 @@
-<?php
-/**
- * Lithium: the most rad php framework
- *
- * @copyright     Copyright 2011, Union of RAD (http://union-of-rad.org)
- * @license       http://opensource.org/licenses/bsd-license.php The BSD License
- */
-?>
 <!doctype html>
 <html>
 <head>
 	<?php echo $this->html->charset();?>
-	<title>Application &gt; <?php echo $this->title(); ?></title>
-	<?php echo $this->html->style(array('debug', 'lithium')); ?>
+	<title><?php echo $this->title(); ?></title>
+	<?php echo $this->html->style(array('bootstrap', 'app')); ?>
+	<?php echo $this->html->script('head.js'); ?>
 	<?php echo $this->scripts(); ?>
 	<?php echo $this->html->link('Icon', null, array('type' => 'icon')); ?>
 </head>
 <body class="app">
-	<div id="container">
-		<div id="header">
-			<h1>Application</h1>
-			<h2>
-				Powered by <?php echo $this->html->link('Lithium', 'http://lithify.me/'); ?>.
-			</h2>
-		</div>
+<?php echo $this->_render('element', 'topnav'); ?>
+	<div class="container">
+		<header id="header">
+			<?php echo $this->_render('element', 'header'); ?>
+		</header>
 		<div id="content">
+			<?php echo $this->sessionMessage->renderAll(); ?>
 			<?php echo $this->content(); ?>
 		</div>
+		<footer id="#footer">
+			<?php echo $this->_render('element', 'footer'); ?>
+		</footer>
 	</div>
+	<script type="text/javascript" charset="utf-8">
+		head.js("<?php echo $this->url('/js/jquery.min.js'); ?>", "<?php echo $this->url('/js/icanhaz.min.js'); ?>", "<?php echo $this->url('/js/all.js'); ?>", function() {
+			ich.grabTemplates(); //make sure, icanhaz bootstraps correctly.
+		});
+	</script>
 </body>
 </html>
