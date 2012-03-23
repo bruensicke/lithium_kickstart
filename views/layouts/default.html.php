@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html class="<?php echo (\lithium\core\Environment::is('development')) ? 'debug' : ''; ?>">
 <head>
 	<?php echo $this->html->charset();?>
 	<title><?php echo $this->title(); ?></title>
@@ -12,20 +12,27 @@
 <?php echo $this->_render('element', 'topnav'); ?>
 	<div class="container">
 		<header id="header">
-			<?php echo $this->_render('element', 'header'); ?>
+			<?= $this->_render('element', 'header'); ?>
 		</header>
 		<div id="content">
-			<?php echo $this->sessionMessage->renderAll(); ?>
-			<?php echo $this->content(); ?>
+			<?= $this->sessionMessage->renderAll() ?>
+			<?= $this->content(); ?>
 		</div>
-		<footer id="#footer">
-			<?php echo $this->_render('element', 'footer'); ?>
+		<footer id="footer">
+			<?= $this->_render('element', 'footer'); ?>
 		</footer>
 	</div>
 	<script type="text/javascript" charset="utf-8">
-		head.js("<?php echo $this->url('/js/jquery.min.js'); ?>", "<?php echo $this->url('/js/icanhaz.min.js'); ?>", "<?php echo $this->url('/js/all.js'); ?>", function() {
-			ich.grabTemplates(); //make sure, icanhaz bootstraps correctly.
-		});
+		head.js(
+			"<?php echo $this->url('/js/jquery.min.js'); ?>",
+			"<?php echo $this->url('/js/icanhaz.min.js'); ?>",
+			"<?php echo $this->url('/js/bootstrap.min.js'); ?>",
+			"<?php echo $this->url('/js/moment.min.js'); ?>",
+			"<?php echo $this->url('/js/app.js'); ?>",
+			function() {
+				ich.grabTemplates();
+			}
+		);
 	</script>
 </body>
 </html>
