@@ -5,6 +5,7 @@
  * @copyright     Copyright 2011, Union of RAD (http://union-of-rad.org)
  * @license       http://opensource.org/licenses/bsd-license.php The BSD License
  */
+echo $this->html->style('debug');
 
 use lithium\core\Libraries;
 use lithium\data\Connections;
