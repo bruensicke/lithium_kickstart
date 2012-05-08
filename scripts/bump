@@ -9,7 +9,7 @@ set -o errexit
 folder=`cd "$(dirname $0)"; pwd | sed s/\\\/scripts//g` #if $0 is in /scripts
 
 # please adjust to your needs
-autocommit=false
+autocommit=true
 version_filename="VERSION.txt"
 changelog_filename="CHANGELOG.txt"
 
@@ -65,9 +65,9 @@ commit() {
 	if [ -d "$folder/.git" ]; then
 		git reset -q HEAD .
 		git add $version_file $changelog_file
-		git commit -m "Bumped Version to $version"
+		git commit -m "Bumped version to $version"
 		git push
-		git tag -a "$version" -m "Bumped Version to $version"
+		git tag -a "$version" -m "Tagged version $version"
 		git push --tags
 	fi
 }
