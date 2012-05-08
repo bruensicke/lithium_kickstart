@@ -1,3 +1,4 @@
+0.0.3 - updated twitter bootstrap
 0.0.2 - updated bump-script
 0.0.1 - fixed bump script
 0.0.0 - initial version
