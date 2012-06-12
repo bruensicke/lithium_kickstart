@@ -4,6 +4,16 @@ This is a kickstart project for your li3 needs. It helps you, starting with li3 
 
 ## Installation
 
+There are two possible ways of integrating. If you already have setup your repository you go this way:
+
+### Installation in an existing (but new) repository
+
+	git remote add kickstart git@github.com:bruensicke/lithium_kickstart.git
+	git fetch kickstart
+	git merge -s recursive -X theirs kickstart/master
+
+### Installation naked
+
 Clone lithium_kickstart with your favorite git client into your workspace:
 
 	git clone --recursive git@github.com:bruensicke/lithium_kickstart.git new_project
