@@ -1,0 +1,29 @@
+.navbar-inner, .navbar .fill { background: #343434; }
+.navbar-inner .container { height: 40px; }
+.navbar .brand { padding: 0; }
+.navbar h3 a { color: inherit; padding: 0; }
+.navbar h3 a span { display: inline-block; padding: 8px 20px 12px; }
+.navbar h3 img { float: left; }
+
+html.development { border-left: 10px solid #f89406; }
+
+section { padding-top: 10px; }
+#content { margin-bottom: 60px; }
+footer, #footer {
+	margin-top: 17px;
+	margin-bottom: 20px;
+	padding-top: 17px;
+	border-top: 1px solid #EEE;
+}
+.page-header img {float:right;}
+.row h3 { line-height: 24px; }
+ul.breadcrumb li.right { float: right; }
+ul.breadcrumb span.label { display: inline; }
+.modal form {margin: 0;}
+table.table-condensed th, table.table-condensed td {paddin	g: 6px 6px 5px; line-height: 15px;}
+table.table th { border-top: 0; border-bottom: 2px solid #ddd; }
+table.table tr:hover td { background-color: #e9e9F9 !important; }
+table.table tr.active td { background-color: #E9E9A9 !important; }
+.label_active { background-color: #46a546; }
+.label_inactive { background-color: #9d261d; }
+.label_failed { background-color: #9d261d; }
