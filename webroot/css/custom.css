@@ -1,12 +1,11 @@
+body { padding-top: 60px; }
+html.development { border-left: 10px solid #f89406; }
 .navbar-inner, .navbar .fill { background: #343434; }
 .navbar-inner .container { height: 40px; }
 .navbar .brand { padding: 0; }
 .navbar h3 a { color: inherit; padding: 0; }
 .navbar h3 a span { display: inline-block; padding: 8px 20px 12px; }
 .navbar h3 img { float: left; }
-
-html.development { border-left: 10px solid #f89406; }
-
 section { padding-top: 10px; }
 #content { margin-bottom: 60px; }
 footer, #footer {
