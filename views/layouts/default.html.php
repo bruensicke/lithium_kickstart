@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html class="<?php echo (\lithium\core\Environment::is('development')) ? 'debug' : ''; ?>">
+<html class="<?php echo \lithium\core\Environment::get(); ?>">
 <head>
 	<?php echo $this->html->charset();?>
 	<title><?php echo $this->title(); ?></title>
-	<?php echo $this->html->style(array('bootstrap.min', 'app')); ?>
+	<?php echo $this->html->style(array('bootstrap.min', 'custom', 'app')); ?>
 	<?php echo $this->html->script('head.js'); ?>
 	<?php echo $this->scripts(); ?>
 	<?php echo $this->html->link('Icon', null, array('type' => 'icon')); ?>
@@ -28,6 +28,7 @@
 			"<?php echo $this->url('/js/icanhaz.min.js'); ?>",
 			"<?php echo $this->url('/js/bootstrap.min.js'); ?>",
 			"<?php echo $this->url('/js/moment.min.js'); ?>",
+			"<?php echo $this->url('/js/tools.js'); ?>",
 			"<?php echo $this->url('/js/app.js'); ?>",
 			function() {
 				ich.grabTemplates();
