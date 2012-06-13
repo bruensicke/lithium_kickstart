@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="<?php echo (\lithium\core\Environment::is('development')) ? 'debug' : ''; ?>">
 <head>
 	<?php echo $this->html->charset();?>
