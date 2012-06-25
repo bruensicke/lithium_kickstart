@@ -3,7 +3,7 @@
 use lithium\core\Environment;
 use lithium\action\Dispatcher;
 use lithium\analysis\Logger;
- 
+
 /**
  * This filter intercepts the `run()` method of the `Dispatcher`, and first passes the `'request'`
  * parameter (an instance of the `Request` object) to the `Environment` class to detect which
@@ -19,12 +19,13 @@ Dispatcher::applyFilter('run', function($self, $params, $chain) {
 	Environment::is(function($request) {
 		switch (true) {
 			case ($request->env('HTTP_HOST') == 'localhost'):
-			case ($request->env('HTTP_HOST') == 'local.mysite'):
+			case ($request->env('HTTP_HOST') == 'domain.local'):
+			case (preg_match('/^(master|stable|dev)\./i', $request->env('HTTP_HOST'))):
 			case (in_array($request->env('SERVER_ADDR'), array('127.0.0.1'))):
 				return 'development';
 			case (preg_match('/\/test\//', $request->env('REQUEST_URI'))):
 				return 'test';
-			case ($request->env('HTTP_HOST') == 'www.mysite.com'):
+			case ($request->env('HTTP_HOST') == 'example.com'):
 			default:
 				return 'production';
 		}

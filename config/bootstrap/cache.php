@@ -63,4 +63,8 @@ Dispatcher::applyFilter('run', function($self, $params, $chain) {
 	return $result;
 });
 
+if (!Environment::is('production') && $apcEnabled) {
+	apc_clear_cache();
+}
+
 ?>
