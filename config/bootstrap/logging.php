@@ -4,12 +4,12 @@ use lithium\analysis\Logger;
 
 Logger::config(array(
 	'default' => array(
-		'development' => array(
-			'adapter' => 'File',
-		),
-		'production' => array(
-			'adapter' => 'File',
-		),
+		'adapter' => 'File',
+		'path' => LITHIUM_APP_PATH . '/log',
 	),
+ 	'system' => array(
+ 		'adapter' => 'Syslog',
+		'priority' => array('emergency', 'alert', 'critical', 'error', 'warning', 'notice', 'info'),
+ 	)
 ));
 
