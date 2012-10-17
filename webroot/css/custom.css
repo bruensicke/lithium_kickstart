@@ -1,11 +1,8 @@
 body { padding-top: 60px; }
-html.development { border-left: 10px solid #f89406; }
-.navbar-inner, .navbar .fill { background: #343434; }
-.navbar-inner .container { height: 40px; }
-.navbar .brand { padding: 0; }
-.navbar h3 a { color: inherit; padding: 0; }
-.navbar h3 a span { display: inline-block; padding: 8px 20px 12px; }
-.navbar h3 img { float: left; }
+html.development { border-left: 10px solid #24B200; }
+html.master { border-left: 10px solid #0066B3; }
+html.stable { border-left: 10px solid #f89406; }
+html.production { border-left: 10px solid #B20000; }
 section { padding-top: 10px; }
 #content { margin-bottom: 60px; }
 footer, #footer {
@@ -28,3 +25,11 @@ table.table tr.active td { background-color: #E9E9A9 !important; }
 .label_failed { background-color: #9d261d; }
 dd code { border: 0; }
 pre.prettyprint { background: #313131; }
+
+@media (max-width: 980px) {
+	body { padding-top: 0; }
+	.navbar-fixed-top .navbar-inner {
+		padding: 0 5px;
+	}
+	.navbar-inner .container { height: inherit; }
+}
