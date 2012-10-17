@@ -13,6 +13,7 @@ There are two possible ways of integrating. If you already have setup your repos
 	git merge -s recursive -X theirs kickstart/master -q --squash
 	git commit -m "kickstart lithium project"
 	git remote rm kickstart
+	chmod -R 0777 resources log
 
 ### Installation naked
 
