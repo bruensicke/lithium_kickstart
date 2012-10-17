@@ -31,6 +31,12 @@ Dispatcher::applyFilter('run', function($self, $params, $chain) {
 		}
 	});
 
+	$config = include dirname(__DIR__) . '/app.php';
 	Environment::set($params['request']);
+	Environment::set(Environment::get(), $config);
+	if (!Environment::is('production') && function_exists('apc_clear_cache')) {
+		apc_clear_cache();
+	}
+
 	return $chain->next($self, $params, $chain);
 });
