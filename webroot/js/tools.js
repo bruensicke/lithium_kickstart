@@ -22,7 +22,7 @@ datetime = function() {
 	$("[data-datetime]").each(function(){
 		var $this = $(this),
 			date = $this.data('datetime'),
-			valid = ((date != undefined && date > 0) 
+			valid = ((date != undefined && date > 0)
 				|| (date != undefined && typeof(date)=='string' && date.length > 0) );
 		if (!valid) {
 			return;
@@ -36,7 +36,7 @@ datetime = function() {
 	});
 }
 render = function() {
-	$(".table-sorter").tablesorter();
+	$('table.table-sorter').tablesorter();
 	datetime();
 	bytes();
 	duration();
@@ -46,7 +46,18 @@ render = function() {
 head.ready(function() {
 
 	render();
-	$('body').on('click', 'tr,[data-selectable]', function(e){ 
+	//make switches on dropdowns
+	$('select[id*="_switch"]').bind('change', function(){
+		var name = $(this).attr('id').split('_switch').join(''),
+			val = $(this).val(),
+			target = name + '_' + val;
+
+		$('div.[class*="' + name + '_"]').hide();
+		if(!this.value == ''){
+			$('div.'+target).show();
+		}
+	}).trigger('change');
+	$('body').on('click', 'tr,[data-selectable]', function(e){
 		$(this).toggleClass('active');
 	});
 	$('ul.nav-pills li a').bind('click', function(){

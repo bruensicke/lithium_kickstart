@@ -103,7 +103,7 @@ if [ $# -lt 2 ]; then
 		    '--help') usage;;
 		esac
 	fi
-	
+
 	# ... or guide him through everything
 	show_current_version
 	echo -n "Please enter new version: "
