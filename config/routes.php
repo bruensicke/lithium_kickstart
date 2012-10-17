@@ -20,6 +20,15 @@ use lithium\net\http\Router;
 use lithium\core\Environment;
 
 /**
+ * We want to access data coming from controllers to be accessable via /api/<controller>/<action>
+ * calls, to they return only the json. That way, all jquery and async calls can re-use existing
+ * controller code.
+ *
+ * @see app\controllers\PagesController
+ */
+Router::connect('/api/{:args}', array('type' => 'json'), array('continue' => true));
+
+/**
  * Here, we are connecting `'/'` (the base path) to controller called `'Pages'`,
  * its action called `view()`, and we pass a param to select the view file
  * to use (in this case, `/views/pages/home.html.php`; see `app\controllers\PagesController`
