@@ -10,7 +10,8 @@ There are two possible ways of integrating. If you already have setup your repos
 
 	git remote add kickstart git@github.com:bruensicke/lithium_kickstart.git
 	git fetch kickstart
-	git merge -s recursive -X theirs kickstart/master
+	git merge -s recursive -X theirs kickstart/master -q --squash
+	git commit -m "kickstart lithium project"
 	git remote rm kickstart
 
 ### Installation naked
@@ -66,6 +67,10 @@ For more information on SemVer, please visit http://semver.org/.
 * [head.js](http://headjs.com/)
 * [jquery](http://jquery.com/)
 * [icanhaz.js](http://icanhazjs.com/)
+* [bootbox.js](http://bootboxjs.com/)
+* [moment.js](http://momentjs.com/)
+* [jeditable](http://www.appelsiini.net/projects/jeditable/)
+* [prettify](http://code.google.com/p/google-code-prettify/)
 
 Please report any bug, here: https://github.com/bruensicke/lithium_kickstart/issues
 
