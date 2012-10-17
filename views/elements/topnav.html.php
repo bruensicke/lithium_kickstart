@@ -8,12 +8,13 @@
 				<span class="icon-bar"></span>
 			</a>
 
-			<h3 class="brand">
-				<a href="<?=$this->url('/'); ?>">
-					<?=$this->html->image('logo.png', array('height' => '40')); ?>
-					<span><?= $this->app->name(); ?></span>
-				</a>
-			</h3>
+			<a href="<?=$this->url('/'); ?>" class="pull-left">
+				<?=$this->html->image('logo.png', array('style' => 'padding-right: 10px')); ?>
+			</a>
+
+			<a href="<?=$this->url('/'); ?>" class="brand">
+				<span><?= $this->app->name(); ?></span>
+			</a>
 
 			<div class="nav-collapse">
 				<ul class="nav">
