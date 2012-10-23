@@ -37,5 +37,6 @@
 			}
 		);
 	</script>
+	<?= $this->_render('element', 'bottom'); ?>
 </body>
 </html>
