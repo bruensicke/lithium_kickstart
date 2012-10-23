@@ -1,17 +1,13 @@
 body { padding-top: 60px; }
-html.development { border-left: 10px solid #24B200; }
-html.master { border-left: 10px solid #0066B3; }
-html.stable { border-left: 10px solid #f89406; }
-html.production { border-left: 10px solid #B20000; }
+#border { background: #a5ebff; position: fixed; top: 0; bottom: 0; width: 10px; left: 0; }
+html.development #border { background: #24B200; }
+html.master #border { background: #0066B3; }
+html.stable #border{ background: #f89406; }
+html.production #border{ background: #B20000; }
 section { padding-top: 10px; }
 #content { margin-bottom: 60px; }
-footer, #footer {
-	margin-top: 17px;
-	margin-bottom: 20px;
-	padding-top: 17px;
-	border-top: 1px solid #EEE;
-}
-.page-header img {float:right;}
+footer, #footer { margin-top: 17px; margin-bottom: 20px; padding-top: 17px; border-top: 1px solid #EEE; }
+.page-header img { float:right; }
 .row h3 { line-height: 24px; }
 ul.breadcrumb li.right { float: right; }
 ul.breadcrumb span.label { display: inline; }
@@ -24,12 +20,10 @@ table.table tr.active td { background-color: #E9E9A9 !important; }
 .label_inactive { background-color: #9d261d; }
 .label_failed { background-color: #9d261d; }
 dd code { border: 0; }
-pre.prettyprint { background: #313131; }
 
 @media (max-width: 980px) {
 	body { padding-top: 0; }
-	.navbar-fixed-top .navbar-inner {
-		padding: 0 5px;
-	}
+	#border { display: none; }
+	.navbar-fixed-top .navbar-inner { padding: 0 5px; }
 	.navbar-inner .container { height: inherit; }
 }
