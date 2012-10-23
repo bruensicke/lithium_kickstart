@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html class="<?php echo \lithium\core\Environment::get(); ?>">
 <head>
-	<?php echo $this->html->charset();?>
-	<title><?php echo $this->title(); ?></title>
-	<?php echo $this->html->style(array('bootstrap.min', 'bootstrap-responsive.min', 'custom', 'app')); ?>
-	<?php echo $this->html->script('head.js'); ?>
-	<?php echo $this->head(); ?>
-	<?php echo $this->scripts(); ?>
-	<?php echo $this->html->link('Icon', null, array('type' => 'icon')); ?>
+	<?php echo $this->_render('element', 'head'); ?>
 </head>
 <body class="app" data-spy="scroll">
 	<?php echo $this->_render('element', 'topnav'); ?>
