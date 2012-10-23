@@ -9,7 +9,7 @@
 	<?php echo $this->scripts(); ?>
 	<?php echo $this->html->link('Icon', null, array('type' => 'icon')); ?>
 </head>
-<body class="app">
+<body class="app" data-spy="scroll">
 	<?php echo $this->_render('element', 'topnav'); ?>
 	<div class="container">
 		<header id="header">
