@@ -12,6 +12,7 @@ footer, #footer { margin-top: 17px; margin-bottom: 20px; padding-top: 17px; bord
 ul.breadcrumb li.right { float: right; }
 ul.breadcrumb span.label { display: inline; }
 .modal form {margin: 0;}
+.input .btn-group { padding: 0; margin-bottom: 9px; height: 30px; }
 table.table-condensed th, table.table-condensed td { padding: 6px 6px 5px; line-height: 15px; }
 table.table th { border-top: 0; border-bottom: 2px solid #ddd; }
 table.table tr:hover td { background-color: #e9e9F9 !important; }
