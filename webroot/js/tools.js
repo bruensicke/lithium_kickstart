@@ -73,7 +73,7 @@ head.ready(function() {
 			val = $(this).val(),
 			target = name + '_' + val;
 
-		$('div.[class*="' + name + '_"]').hide();
+		$('[class*="' + name + '_"]').hide();
 		if(!this.value == ''){
 			$('div.'+target).show();
 		}
